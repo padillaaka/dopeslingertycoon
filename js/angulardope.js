@@ -71,7 +71,7 @@ function DrugUnlock (name,tooltip,price,drug) {
 }
 
 function formatMoney(input) {
-  return '$' + formatNumber(input);
+  return formatNumber(input) + ' €';
 }
 
 function formatNumber(input) {
@@ -89,8 +89,8 @@ function formatNumber(input) {
 }
 
 var productionUpgradesMaster = [
-  new ProductionUpgrade('Fertilizer', 'Nutrient rich fertilizer, increases the amount of weed produced by your cannabis plants by 30%!', 500, 'Cannabis Plant', 1.3, 'Weed'),
-  new ProductionUpgrade('Hydroponics', 'High tech agriculture system, increases the amount of weed produced by your cannabis plants by 50%!', 6500, 'Cannabis Plant', 1.5, 'Weed'),
+  new ProductionUpgrade('Fertilizer', 'Nutrient rich fertilizer, increases the amount of weed produced by your cannabis plants by 30%!', 500, 'Planta de cannabis', 1.3, 'Marihuana'),
+  new ProductionUpgrade('Hydroponics', 'High tech agriculture system, increases the amount of weed produced by your cannabis plants by 50%!', 6500, 'Planta de cannabis', 1.5, 'Marihuana'),
 
   new ProductionUpgrade('Auto Hygrometer', 'An automatically controlled humidity system, increases the amount of shrooms produced by your mushroom farms by 50%!', 5000, 'Mushroom Farm', 1.5, 'Magic Mushrooms'),
   new ProductionUpgrade('Irrigation system', 'An computer controlled irrigation system, increases the amount of shrooms produced by your mushroom farms by 50%!', 25000, 'Mushroom Farm', 1.5, 'Magic Mushrooms'),
@@ -158,7 +158,7 @@ function muscle(name, price, respect, priceMulti) {
 }
 var createMuscleMaster = function() {
   return [
-    new muscle('Hood Rat', 80, 1, 1.2),
+    new muscle('Yonki', 80, 1, 1.2),
     new muscle('Young Thug', 1000, 5, 1.25),
     new muscle('Hired Goon', 12000, 75, 1.27),
     new muscle('Crooked Cop', 130000, 500, 1.28),
@@ -175,7 +175,7 @@ var muscleMaster = createMuscleMaster();
 
 var createDrugsMaster = function() {
   return [
-    new Drug('Weed', 4.2, 0),
+    new Drug('Marihuana', 4.2, 0),
     new Drug('Magic Mushrooms', 6, 2000),
     new Drug('Meth', 10, 7000),
     new Drug('Speed', 15, 20000),
@@ -206,7 +206,7 @@ var drugsMaster = createDrugsMaster();
 
   var createProductionMaster = function() {
     return [
-      new Producer('Cannabis Plant', 15, 'Weed', 1.12, 0.2),
+      new Producer('Planta de cannabis', 15, 'Marihuana', 1.12, 0.2),
       new Producer('Mushroom Farm', 150, 'Magic Mushrooms', 1.15, 0.3),
       new Producer('Meth Cook', 1000, 'Meth', 1.2, 0.5),
       new Producer('Base Chef', 2500, 'Speed', 1.21, 0.4),
@@ -231,10 +231,10 @@ var drugsMaster = createDrugsMaster();
       if (Math.random() > 0.7) {
         name = femaleFirstNames[Math.floor(Math.random() * femaleFirstNames.length)];
       }
+      name = name + ' ' + lastNames[Math.floor(Math.random() * lastNames.length)];
       if (Math.random() > 0.8) {
         name = name + ' "' + nicknames[Math.floor(Math.random() * nicknames.length)] + '"';
       }
-      name = name + ' ' + lastNames[Math.floor(Math.random() * lastNames.length)];
       return name;
     }
 
@@ -251,7 +251,7 @@ var drugsMaster = createDrugsMaster();
       this.name = dealerName();
       this.cashEarned = 0;
       this.selected = true;
-      this.drug = "Weed";
+      this.drug = "Marihuana";
       this.drugIndex = 0;
       this.upgrades = [];
       this.cashOneSecondAgo = 0;
@@ -272,7 +272,7 @@ var drugsMaster = createDrugsMaster();
       this.drugs = [drugsMaster[0]];
       this.muscle = [muscleMaster[0]];
       this.upgrades = [];
-      this.currencyCode = '$';
+      this.currencyCode = '€';
       this.cash = 100;
       this.respect = 0;
       this.totalCashEarned = 0;
@@ -846,7 +846,7 @@ var drugsMaster = createDrugsMaster();
       $scope.hireDealer = function (dealer) {
         $('#hireDealerModal').modal('hide');
         if ($scope.gameModel.dealers.length < 1 + $scope.gameModel.territoryUpgrades && !$scope.dealerHired(dealer.seed)) {
-          dealer.drug = 'Weed';
+          dealer.drug = 'Marihuana';
           dealer.payCops = false;
           $scope.gameModel.dealers.push(dealer);
           writeToCookie();
@@ -875,7 +875,7 @@ var drugsMaster = createDrugsMaster();
       $scope.fireDealerConfirm = function () {
         for (var i = 0; i < $scope.gameModel.dealers.length; i++) {
           if ($scope.gameModel.dealers[i].seed == $scope.dealerToFire.seed) {
-            $scope.dealerToFire.drug = 'Weed';
+            $scope.dealerToFire.drug = 'Marihuana';
             $scope.gameModel.dealers.splice(i,1);
             writeToCookie();
             $('#fireDealerModal').modal('hide');
@@ -1110,7 +1110,7 @@ var drugsMaster = createDrugsMaster();
 
             for (var i=0; i<$scope.prestigeDealers.length; i++){
               $scope.prestigeDealers[i].arrested = false;
-              $scope.prestigeDealers[i].drug = "Weed";
+              $scope.prestigeDealers[i].drug = "Marihuana";
             }
             productionMaster = createProductionMaster();
             muscleMaster = createMuscleMaster();
@@ -1152,7 +1152,7 @@ var drugsMaster = createDrugsMaster();
 
         $scope.importGame = function() {
           if (typeof $scope.importGameSave == 'undefined' || $scope.importGameSave.length < 1) {
-            $scope.importError = "No game save entered";
+            $scope.importError = "Datos de juego no validos";
             return;
           }
           try {
