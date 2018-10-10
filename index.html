@@ -147,7 +147,7 @@
               </div>
 
               <div class="col-xs-12 col-sm-6" id="cash-wrap" >
-                  <p ng-show="!options.workMode" ng-class="{'hidden' : options.hideTop}"><strong>Compra plantas de Maria para cultivar marihuana. Contrata camellos para vender la mierda. Consigue poder para ganarte respeto. Usa el respeto para expandir tu territorio o negociar mejores precios.</strong></p>
+                  <p ng-show="!options.workMode" ng-class="{'hidden' : options.hideTop}"><strong>Compra plantas de Maria y cultiva marihuana. Contrata camellos para vender la mierda. Consigue poder para ganarte respeto. Usa el respeto para expandir tu territorio o negociar mejores precios.</strong></p>
                   <div class="strong" ng-class="{'hidden' : options.hideTop}">
                       Dinero actual:
                       <span class="current-cash">{{gameModel.cash|money}}</span>
@@ -174,9 +174,9 @@
             <div class="clearfix"></div>
 
             <ul class="nav nav-tabs visible-xs">
-                <li role="presentation" ng-class="{'active':currentTab == 'production'}"><a class="production-header strong" ng-click="currentTab = 'production'">Production</a></li>
-                <li role="presentation" ng-class="{'active':currentTab == 'distribution'}"><a class="distribution-header strong" ng-click="currentTab = 'distribution'">Distribution</a></li>
-                <li role="presentation" ng-class="{'active':currentTab == 'muscle'}"><a class="muscle-header strong" ng-click="currentTab = 'muscle'">Muscle</a></li>
+                <li role="presentation" ng-class="{'active':currentTab == 'production'}"><a class="production-header strong" ng-click="currentTab = 'production'">Producción</a></li>
+                <li role="presentation" ng-class="{'active':currentTab == 'distribution'}"><a class="distribution-header strong" ng-click="currentTab = 'distribution'">Distribución</a></li>
+                <li role="presentation" ng-class="{'active':currentTab == 'muscle'}"><a class="muscle-header strong" ng-click="currentTab = 'muscle'">Poder</a></li>
             </ul>
 
             <div class="col-xs-12 col-sm-4 production col-pad-5" ng-class="{'hidden-xs':currentTab != 'production'}">
@@ -235,7 +235,7 @@
                                     <span class="glyphicon icongreen glyphicon-info-sign" style="width:100%;"></span>
                                 </button>
                             </div>
-                            <div style="display:none;"><p class="jg-tooltip">Buy {{producer.name == 'Opium Farm' ? 'an' : 'a'}} {{producer.name.toLowerCase()}} to increase your {{drug.name.toLowerCase()}} production by {{producer.prodPerUnit * kingpinMulti()|weight}} per second</p></div>
+                            <div style="display:none;"><p class="jg-tooltip">Compra {{producer.name == 'Opium Farm' ? 'an' : 'una'}} {{producer.name.toLowerCase()}} para aumentar tu {{drug.name.toLowerCase()}} producción de {{producer.prodPerUnit * kingpinMulti()|weight}} por segundo</p></div>
                             <progressbar animate="false" value="cashPercentage(productionPrice(producer))" ng-class="gameModel.cash < productionPrice(producer) ? 'active progress-striped' : 'progress-bar-success'"></progressbar>
                         </div>
 
@@ -277,7 +277,7 @@
 
                 <div class="btn-group" style="width:100%;">
                     <button ng-click="hireDealerModal()" style="width:85%;" class="btn btn-default" type="button" id="hire-dealer-button" tooltip="Hire another dealer">
-                        <span class="glyphicon icongreen glyphicon-user"></span> Hire dealer <span class="dealer-count strong">{{gameModel.dealers.length + '/' + (1 + gameModel.territoryUpgrades)}}</span>
+                        <span class="glyphicon icongreen glyphicon-user"></span> Contratar camellos <span class="dealer-count strong">{{gameModel.dealers.length + '/' + (1 + gameModel.territoryUpgrades)}}</span>
                     </button>
                     <button type="button" class="btn btn-default dropdown-toggle text-center pl-0 pr-0" data-toggle="dropdown" aria-expanded="false" style="width:15%;">
                         <span class="icongreen noadjust glyphicon glyphicon-sort-by-alphabet"></span><span class="caret"></span>
@@ -311,13 +311,13 @@
                           <div class="col-xs-12" style="margin-bottom:10px;" ng-hide="dealer.arrested">
                               <div class="btn-group" style="width:100%" role="group">
                                   <button class="btn btn-default" style="width:85%;margin-bottom:0;" ng-click="dealer.payCops = !dealer.payCops;">
-                                      Pay off the cops (<strong>{{dealer.payCops ? "On" : "Off"}}</strong>)
+                                      Sobornar a los policias (<strong>{{dealer.payCops ? "Si" : "No"}}</strong>)
                                   </button>
                                   <button class="btn btn-default text-center pl-0 pr-0" style="width:15%;margin-bottom:0;" onclick="toggleTooltip(this);">
                                       <span class="glyphicon icongreen glyphicon-info-sign" style="width:100%;"></span>
                                   </button>
                               </div>
-                              <div style="display:none;"><p class="jg-tooltip">Give the cops 10% of {{dealer.name}}'s income in order to keep them off their back. Reduces earnings, but they wont get arrested.</p></div>
+                              <div style="display:none;"><p class="jg-tooltip">Dale a la policía el 10% de los ingresos de {{dealer.name}} para mantenerlos lejos de sus espaldas. Reduce las ganancias, pero no serán arrestados.</p></div>
                           </div>
 
                           <p class="col-xs-6" style="padding-left:21px;padding-right:0;">Total: <strong>{{dealer.cashEarned|money}}</strong></p>
@@ -325,24 +325,24 @@
                           <p class="col-xs-6"><strong>{{dealer.cashPerSecond|money}} / sec</strong></p>
                           <div class="clearfix"></div>
 
-                          <p class="col-xs-5 col-sm-4" style="padding-left:21px;">Selling:</p>
+                          <p class="col-xs-5 col-sm-4" style="padding-left:21px;">Vendiendo:</p>
                           <span class="col-xs-7 col-sm-8">
                               <select class="form-control" ng-model="dealer.drug" ng-change="updateDealerDrugIndex()" tooltip="Select which drug you want this dealer to sell">
                                   <option ng-repeat="drug in gameModel.drugs track by $index">{{drug.name}}</option>
                               </select>
                           </span>
-                          <div class="col-xs-12"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Volume: <span class="volume iconyellow" ng-bind-html="getStars(dealer.originalVolume,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
+                          <div class="col-xs-12"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Venta: <span class="volume iconyellow" ng-bind-html="getStars(dealer.originalVolume,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
                           <div class="col-xs-12 mb-5" style="display:none;">
                               <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} can sell up to {{actualDealerVolume(dealer,dealer.drug)|weight}} of {{dealer.drug}} per second, as well as {{dealer.sideVolume * actualDealerVolume(dealer,dealer.drug)|weight}} of other drugs</p>
                           </div>
 
-                          <div class="col-xs-12 mt-10"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Margin: <span class="price iconyellow" ng-bind-html="getStars(dealer.originalPrice,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
+                          <div class="col-xs-12 mt-10"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Beneficios: <span class="price iconyellow" ng-bind-html="getStars(dealer.originalPrice,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
                           <div class="col-xs-12" style="display:none;">
                               <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} sells 1g of {{dealer.drug}} for {{actualDealerPrice(dealer)|money}}</p>
                           </div>
 
                           <span class="col-xs-12 mt-10"><button class="btn btn-default" ng-click="dealerUpgradeModal(dealer)">
-                            <span class="glyphicon glyphicon-shopping-cart" ng-class="areDealerUpgradesAvailable(dealer) ? 'icongreen' : 'iconred'"></span>Buy Equipment</button>
+                            <span class="glyphicon glyphicon-shopping-cart" ng-class="areDealerUpgradesAvailable(dealer) ? 'icongreen' : 'iconred'"></span>Comprar equipamiento</button>
                           </span>
 
                           <div ng-repeat="upgrade in dealer.upgrades | orderBy:'price' track by $index">
@@ -353,7 +353,7 @@
                           </div>
 
                           <div class="col-xs-12">
-                              <button class="btn btn-default" ng-click="fireDealerModal(dealer)"><span class="glyphicon iconred glyphicon-user"></span>Fire {{dealer.name.split(' ')[0]}}</button>
+                              <button class="btn btn-default" ng-click="fireDealerModal(dealer)"><span class="glyphicon iconred glyphicon-user"></span>Despedir a  {{dealer.name.split(' ')[0]}}</button>
                           </div>
                       </div>
                   </div>
@@ -366,33 +366,33 @@
 
                 <div class="btn-group" role="group" style="width:100%;">
                     <button ng-click="expandTerritory()" style="width:85%;" class="btn btn-default btn-muscle" ng-disabled="gameModel.respect < priceOfTerritory()" type="button">
-                        <span class="glyphicon icongreen glyphicon-globe"></span> Expand territory (<strong>{{priceOfTerritory()|respect}} respect</strong>)
+                        <span class="glyphicon icongreen glyphicon-globe"></span> Expandir territorio (<strong>{{priceOfTerritory()|respect}} respeto</strong>)
                     </button>
                     <button class="btn btn-default btn-muscle text-center pl-0 pr-0" style="width:15%;" onclick="toggleTooltip(this);">
                         <span class="glyphicon icongreen glyphicon-info-sign" style="width:100%;"></span>
                     </button>
                 </div>
-                <div style="display:none;"><p class="jg-tooltip">Expand your territory, allowing you to hire an additional dealer</p></div>
+                <div style="display:none;"><p class="jg-tooltip">Expande tu territorio, permitiéndote contratar un camello adicional.</p></div>
                 <progressbar animate="false" value="respectPercentage(priceOfTerritory())" ng-class="gameModel.respect < priceOfTerritory() ? 'active progress-striped' : 'progress-bar-success'"></progressbar>
 
                 <div class="btn-group" role="group" style="width:100%;margin-top:10px;">
                     <button ng-click="getDiscount()" style="width:85%;" class="btn btn-default btn-muscle" ng-disabled="gameModel.respect < priceOfDiscount()" type="button">
-                        <span class="glyphicon icongreen glyphicon-usd"></span> Negotiate discount (<strong>{{priceOfDiscount()|respect}} respect</strong>)
+                        <span class="glyphicon icongreen glyphicon-usd"></span> Negociar descuento (<strong>{{priceOfDiscount()|respect}} respeto</strong>)
                     </button>
                     <button class="btn btn-default btn-muscle text-center pl-0 pr-0" style="width:15%;" onclick="toggleTooltip(this);">
                         <span class="glyphicon icongreen glyphicon-info-sign" style="width:100%;"></span>
                     </button>
                 </div>
-                <div style="display:none;"><p class="jg-tooltip">Renegotiate prices with your suppliers. This will reduce your costs by 10%</p></div>
+                <div style="display:none;"><p class="jg-tooltip">Negociar los precios con sus proveedores. Esto reducirá sus costes en un 10%</p></div>
                 <progressbar animate="false" value="respectPercentage(priceOfDiscount())" ng-class="gameModel.respect < priceOfDiscount() ? 'active progress-striped' : 'progress-bar-success'"></progressbar>
 
                 <div class="muscle-ui drug-anim" ng-repeat="muscle in gameModel.muscle track by $index">
                     <div class="muscle" ng-class="{'open':muscle.selected}" ng-click="selectDealer(muscle)">
-                        <strong>{{muscle.name}} ({{muscle.qty}})</strong><span class="glyphicon" ng-class="muscle.selected ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'"></span>
+                        <strong>{{muscle.name}}s ({{muscle.qty}})</strong><span class="glyphicon" ng-class="muscle.selected ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'"></span>
                     </div>
                     <div class="muscle-content row" ng-class="{'content-open':muscle.selected}">
-                        <p class="col-xs-12">Each {{muscle.name}} earns you <span class="strong">{{muscle.respect|respect}}</span> respect per second</p>
-                        <p class="col-xs-12">Your <span class="strong">{{muscle.qty}}</span> {{muscle.name}}s are earning you <span class="strong">{{muscle.respect*muscle.qty|respect}}</span> respect per second</p>
+                        <p class="col-xs-12">Cada {{muscle.name}} te da <span class="strong">{{muscle.respect|respect}}</span> de respeto por segundo</p>
+                        <p class="col-xs-12">Tus <span class="strong">{{muscle.qty}}</span> {{muscle.name}}s te están haciendo ganar <span class="strong">{{muscle.respect*muscle.qty|respect}}</span> de respeto por segundo</p>
                         <div class="col-xs-12">
                             <button class="btn btn-default btn-muscle" style="width:100%" ng-click="hireMuscle(muscle)" ng-disabled="gameModel.cash < musclePrice(muscle)">
                                 <span class="qty">{{muscle.qty}}</span>{{muscle.name}} (<strong>{{musclePrice(muscle)|money}}</strong>)
@@ -500,21 +500,21 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hire dealer</h4>
+                        <h4 class="modal-title" id="myModalLabel">Contratar camellos</h4>
                     </div>
                     <div class="modal-body row">
-                        <div class="col-xs-12 col-sm-4"><button class="btn btn-default btn-distribution new-dealer-btn" ng-click="refreshDealers()" ng-disabled="secondsToDealerRefresh > 0">New dealers <span ng-show="secondsToDealerRefresh > 0">({{secondsToDealerRefresh}})</span></button></div>
-                        <p class="col-xs-12 col-sm-8 dealer-warning" ng-show="gameModel.dealers.length >= gameModel.territoryUpgrades + 1">You already have the maximum number of dealers working for you. Either fire a dealer or expand your territory to hire another.</p>
+                        <div class="col-xs-12 col-sm-4"><button class="btn btn-default btn-distribution new-dealer-btn" ng-click="refreshDealers()" ng-disabled="secondsToDealerRefresh > 0">Camellos nuevos <span ng-show="secondsToDealerRefresh > 0">({{secondsToDealerRefresh}})</span></button></div>
+                        <p class="col-xs-12 col-sm-8 dealer-warning" ng-show="gameModel.dealers.length >= gameModel.territoryUpgrades + 1">Tienes el maximo numero de camellos trabajando para ti. Despide a uno o expande tu territorio para contratar a otro..</p>
                         <div class="clearfix"></div>
                         <div class="col-xs-12 col-sm-4 dealer-hire-anim" ng-repeat="dealer in hireDealers track by $index" ng-animate="'list'">
                           <div style="min-height:180px;">
                             <p class="dealer-name"><span class="glyphicon glyphicon-tower" ng-show="dealer.type == 'Prestige'"></span> <span class="distribution strong">{{dealer.name}}</span> <span class="strong" ng-show="dealer.type == 'Prestige'">({{dealer.level}})</span></p>
-                            <p class="strong">Volume: <span class="volume iconyellow" ng-bind-html="getStars(dealer.originalVolume,5)"></span></p>
-                            <p class="strong">Margin: <span class="price iconyellow" ng-bind-html="getStars(dealer.originalPrice,5)"></span></p>
-                            <p>Sells {{actualDealerVolume(dealer,dealer.drug)|weight}} per second</p>
-                            <p>Sells 1g of {{dealer.drug}} for {{actualDealerPrice(dealer)|money}}</p>
+                            <p class="strong">Venta: <span class="volume iconyellow" ng-bind-html="getStars(dealer.originalVolume,5)"></span></p>
+                            <p class="strong">Beneficios: <span class="price iconyellow" ng-bind-html="getStars(dealer.originalPrice,5)"></span></p>
+                            <p>Vende {{actualDealerVolume(dealer,dealer.drug)|weight}} por segundo</p>
+                            <p>Vende 1g de {{dealer.drug}} por {{actualDealerPrice(dealer)|money}}</p>
                           </div>
-                          <button class="btn btn-default btn-distribution" ng-click="hireDealer(dealer)" ng-disabled="gameModel.dealers.length >= gameModel.territoryUpgrades + 1 || dealerHired(dealer.seed)">{{dealerHired(dealer.seed) ? 'Hired' : 'Hire ' + dealer.name.split(' ')[0]}}</button>
+                          <button class="btn btn-default btn-distribution" ng-click="hireDealer(dealer)" ng-disabled="gameModel.dealers.length >= gameModel.territoryUpgrades + 1 || dealerHired(dealer.seed)">{{dealerHired(dealer.seed) ? 'Hired' : 'Contratar a ' + dealer.name.split(' ')[0]}}</button>
                         </div>
                     </div>
                 </div>
@@ -526,32 +526,32 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Options</h4>
+                        <h4 class="modal-title" id="myModalLabel">Opciones</h4>
                     </div>
                     <div class="modal-body row">
                         <div class="col-xs-12 col-sm-6">
-                            <button onclick="if (confirm('This will reset all progress, are you sure?')) { resetGame(); }" class="btn btn-default"><span class="glyphicon iconred glyphicon-exclamation-sign"></span> Reset game</button>
+                            <button onclick="if (confirm('This will reset all progress, are you sure?')) { resetGame(); }" class="btn btn-default"><span class="glyphicon iconred glyphicon-exclamation-sign"></span> Reiniciar el juego</button>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <button ng-click="toggleWorkMode()" class="btn btn-default"><span class="glyphicon glyphicon-filter iconred"></span> Toggle work mode</button>
+                            <button ng-click="toggleWorkMode()" class="btn btn-default"><span class="glyphicon glyphicon-filter iconred"></span> Alternar colores</button>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <button ng-click="toggleNightMode()" class="btn btn-default"><span class="glyphicon glyphicon-filter iconred"></span> Toggle night mode</button>
+                            <button ng-click="toggleNightMode()" class="btn btn-default"><span class="glyphicon glyphicon-filter iconred"></span> Alternar modo noche</button>
                         </div>
                         <div class="col-xs-12 col-sm-6" tooltip="Toggle automatic selling of drugs on the silk road">
-                            <button ng-click="toggleAutoSilk()" class="btn btn-default"><span class="glyphicon glyphicon-cloud icongreen"></span> Auto silk road sell {{options.autoSilk ? '(on)' : '(off)'}}</button>
+                            <button ng-click="toggleAutoSilk()" class="btn btn-default"><span class="glyphicon glyphicon-cloud icongreen"></span> Auto venta en Silk road {{options.autoSilk ? '(Si)' : '(No)'}}</button>
                         </div>
                         <div class="col-xs-12 col-sm-6" tooltip="Export or Import game save">
-                            <button ng-click="exportGame()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk icongreen"></span> Export/Import game save</button>
+                            <button ng-click="exportGame()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk icongreen"></span> Exportar/Importar datos guardados</button>
                         </div>
                         <div class="col-xs-12 col-sm-6" tooltip="Hide the title section">
-                            <button ng-click="hideTop()" class="btn btn-default"><span class="glyphicon glyphicon-eye-close icongreen"></span> Hide/Show Title</button>
+                            <button ng-click="hideTop()" class="btn btn-default"><span class="glyphicon glyphicon-eye-close icongreen"></span> Ocultar/Mostrar Titulo</button>
                         </div>
                         <div class="col-xs-12 col-sm-6" tooltip="Toggle automatic selling of drugs on the silk road">
-                            <button onclick="kongregate.services.resizeGame(1600, 1080);" ng-click="kongregateLargeWindow()" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in icongreen"></span> Larger window</button>
+                            <button onclick="kongregate.services.resizeGame(1600, 1080);" ng-click="kongregateLargeWindow()" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in icongreen"></span> + Zoom</button>
                         </div>
                         <div class="col-xs-12 col-sm-6" tooltip="Toggle automatic selling of drugs on the silk road">
-                            <button onclick="kongregate.services.resizeGame(1199, 700);" ng-click="kongregateSmallWindow()" class="btn btn-default"><span class="glyphicon glyphicon-zoom-out icongreen"></span> Smaller window</button>
+                            <button onclick="kongregate.services.resizeGame(1199, 700);" ng-click="kongregateSmallWindow()" class="btn btn-default"><span class="glyphicon glyphicon-zoom-out icongreen"></span> - Zoom</button>
                         </div>
                         <div class="col-xs-12" ng-show="kingpins.length > 0" style="margin-top:25px;">
                             <p class="strong">The names of your Kingpins</p>
@@ -567,28 +567,28 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Export / Import</h4>
+                        <h4 class="modal-title" id="myModalLabel">Exportar / Importar</h4>
                     </div>
                     <div class="modal-body row">
                         <div class="col-xs-12">
-                            <p class="strong">To export a save, copy the entire contents of the text box below</p>
+                            <p class="strong">Para exportar los datos de la partida, copia todo el texto que se muestra y guardalo</p>
                         </div>
                         <div class="col-xs-12">
                             <textarea class="form-control" rows="8" ng-model="exportGameSave"></textarea>
                         </div>
                         <div class="col-xs-12 mt-20">
-                            <p class="strong">To import a save, paste the data copied into the text box below and click import</p>
-                            <p class="strong">This will overwrite your current progress!</p>
+                            <p class="strong">Para importar los datos de la partida, pega el texto copiado anteriormente y dale a importar.</p>
+                            <p class="strong">¡Esto sobrescribirá tu progreso actual!</p>
                         </div>
                         <div class="col-xs-12">
                             <textarea class="form-control" rows="8" ng-model="importGameSave"></textarea>
                         </div>
                         <div class="col-xs-12 mt-5">
-                            <button ng-click="importGame()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk icongreen"></span> Import</button>
+                            <button ng-click="importGame()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk icongreen"></span> Importar</button>
                         </div>
                         <div class="col-xs-12 mt-10" ng-show="importError">
                             <p class="strong">Error: {{importError}}</p>
-                            <p class="strong">Import failed</p>
+                            <p class="strong">Fallo al importar</p>
                         </div>
                     </div>
                 </div>
