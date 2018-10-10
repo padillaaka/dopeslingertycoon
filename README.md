@@ -1,2 +1,3 @@
 # Dope Slinger Tycoon
-A browser game built with AngularJS
+Una traducción del juego Dope Slinger Tycoon. 
+
