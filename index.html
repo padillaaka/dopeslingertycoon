@@ -283,12 +283,12 @@
                         <span class="icongreen noadjust glyphicon glyphicon-sort-by-alphabet"></span><span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" style="right:0;left:auto;">
-                        <li><a href="#" ng-click="dealerSort = 'none';dealerSortReverse = false;">None <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'none'"></span></a></li>
-                        <li><a href="#" ng-click="dealerSort = 'drugIndex';dealerSortReverse = false;updateDealerDrugIndex();">Drug <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'drugIndex'"></span></a></li>
-                        <li><a href="#" ng-click="dealerSort = 'name';dealerSortReverse = false;">Name <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'name'"></span></a></li>
-                        <li><a href="#" ng-click="dealerSort = 'cashEarned';dealerSortReverse = true;">Cash Earned <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'cashEarned'"></span></a></li>
-                        <li><a href="#" ng-click="dealerSort = 'originalVolume';dealerSortReverse = true;">Volume <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'originalVolume'"></span></a></li>
-                        <li><a href="#" ng-click="dealerSort = 'originalPrice';dealerSortReverse = true;">Margin <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'originalPrice'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'none';dealerSortReverse = false;">Ninguno <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'none'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'drugIndex';dealerSortReverse = false;updateDealerDrugIndex();">Droga <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'drugIndex'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'name';dealerSortReverse = false;">Nombre <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'name'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'cashEarned';dealerSortReverse = true;">Dinero ganado <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'cashEarned'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'originalVolume';dealerSortReverse = true;">Venta <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'originalVolume'"></span></a></li>
+                        <li><a href="#" ng-click="dealerSort = 'originalPrice';dealerSortReverse = true;">Beneficios <span class="glyphicon glyphicon-ok" ng-show="dealerSort == 'originalPrice'"></span></a></li>
                     </ul>
                 </div>
                 <div class="row dealer-row">
@@ -305,8 +305,8 @@
                           <p ng-show="dealer.type == 'Prestige' && dealer.level < 10" class="col-xs-12" style="padding-left:21px;text-align:center;"><span class="strong">Level {{dealer.level}}</span> - {{dealer.currentXp.toFixed(2)}}% to level {{dealer.level + 1}}</p>
                           <p ng-show="dealer.type == 'Prestige' && !dealer.arrested" class="col-xs-12 strong" style="padding-left:21px;text-align:center;">Increases all respect earned by {{100 + dealer.level * 50}}%</p>
 
-                          <div class="alert alert-danger ml-10 mr-10 mb-10 text-center" role="alert" ng-show="dealer.arrested" style="clear:both;">ARRESTED</div>
-                          <span class="col-xs-12 mb-5" ng-show="dealer.arrested"><button class="btn btn-default" ng-click="payBail(dealer)" ng-disabled="gameModel.cash < dealer.bail"><span class="glyphicon glyphicon-usd icongreen"></span>Pay Bail <b>{{dealer.bail | money}}</b></button></span>
+                          <div class="alert alert-danger ml-10 mr-10 mb-10 text-center" role="alert" ng-show="dealer.arrested" style="clear:both;">DETENIDO</div>
+                          <span class="col-xs-12 mb-5" ng-show="dealer.arrested"><button class="btn btn-default" ng-click="payBail(dealer)" ng-disabled="gameModel.cash < dealer.bail"><span class="glyphicon glyphicon-usd icongreen"></span>Pagar fianza <b>{{dealer.bail | money}}</b></button></span>
 
                           <div class="col-xs-12" style="margin-bottom:10px;" ng-hide="dealer.arrested">
                               <div class="btn-group" style="width:100%" role="group">
@@ -333,12 +333,12 @@
                           </span>
                           <div class="col-xs-12"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Venta: <span class="volume iconyellow" ng-bind-html="getStars(dealer.originalVolume,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
                           <div class="col-xs-12 mb-5" style="display:none;">
-                              <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} can sell up to {{actualDealerVolume(dealer,dealer.drug)|weight}} of {{dealer.drug}} per second, as well as {{dealer.sideVolume * actualDealerVolume(dealer,dealer.drug)|weight}} of other drugs</p>
+                              <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} puede vender {{actualDealerVolume(dealer,dealer.drug)|weight}} de {{dealer.drug}} por segundo, ademas de {{dealer.sideVolume * actualDealerVolume(dealer,dealer.drug)|weight}} de otras drogas</p>
                           </div>
 
                           <div class="col-xs-12 mt-10"><span class="jg-tooltip-btn strong" onclick="toggleTooltip(this)">Beneficios: <span class="price iconyellow" ng-bind-html="getStars(dealer.originalPrice,5)"></span> <span class="pl-10 glyphicon glyphicon-info-sign"></span></span></div>
                           <div class="col-xs-12" style="display:none;">
-                              <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} sells 1g of {{dealer.drug}} for {{actualDealerPrice(dealer)|money}}</p>
+                              <p class="jg-tooltip left-tip">{{dealer.name.split(' ')[0]}} vende 1g de {{dealer.drug}} por {{actualDealerPrice(dealer)|money}}</p>
                           </div>
 
                           <span class="col-xs-12 mt-10"><button class="btn btn-default" ng-click="dealerUpgradeModal(dealer)">
@@ -453,18 +453,18 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Fire {{dealerToFire.name.split(' ')[0]}}?</h4>
+                        <h4 class="modal-title" id="myModalLabel">Despedir a {{dealerToFire.name.split(' ')[0]}}?</h4>
                     </div>
                     <div class="modal-body row">
-                        <div class="col-xs-12 text-center pb-10"><i>&quot;But I've got {{dealerToFire.kids}} kids to feed!&quot;</i></div>
+                        <div class="col-xs-12 text-center pb-10"><i>&quot;Tengo a {{dealerToFire.kids}} niños que mantener!&quot;</i></div>
                         <div class="col-xs-6 pr-10">
                             <button ng-click="fireDealerConfirm()" class="btn btn-default btn-distribution" type="button">
-                                <span class="glyphicon iconred glyphicon-user"></span> Fire
+                                <span class="glyphicon iconred glyphicon-user"></span> Despedir
                             </button>
                         </div>
                         <div class="col-xs-6 pl-10">
                             <button ng-click="fireDealerCancel()" class="btn btn-default btn-distribution" type="button">
-                                <span class="glyphicon icongreen glyphicon-user"></span> Keep
+                                <span class="glyphicon icongreen glyphicon-user"></span> Mantener
                             </button>
                         </div>
                     </div>
