@@ -35,17 +35,17 @@ function DealerUpgrade(name, tooltip, price, volumeMod, priceMod, secondaryMod, 
 }
 
 var dealerUpgrades = [
-  new DealerUpgrade('Baseball bat', 'Handy in a street fight and helps to scare away the competition. Allows the dealer to sell drugs for 10% more money', 150, 1, 1.1, 0, '+10% margin'),
-  new DealerUpgrade('Bicycle', 'The cheapest and most basic form of personal transportation. Allows the dealer to sell an extra 10% volume', 600, 1.1, 1, 0, '+10% volume'),
-  new DealerUpgrade('iPhone 6 Plus', 'A state of the art smartphone. Allows the dealer to sell a small amount of other drugs on the side', 900, 1, 1, 0.1, '+10% secondary sales'),
-  new DealerUpgrade('Superbike', 'One of the fastest ways to get around the urban jungle. Allows the dealer to sell an extra 20% volume', 25000, 1.2, 1, 0, '+20% volume'),
-  new DealerUpgrade('Glock 17 9mm', 'A small but deadly firearm, nobody will mess with you if you have this. Allows the dealer to sell drugs for 20% more money', 5000, 1, 1.2, 0, '+20% margin'),
-  new DealerUpgrade('Personal Assistant', 'A personal assistant to take your calls. Allows the dealer to sell even more drugs on the side', 85000, 1, 1, 0.2, '+20% secondary sales'),
-  new DealerUpgrade('Armed Gang', 'A gang of tooled up homies to help eliminate the competition. Allows the dealer to sell drugs for 20% more money', 150000, 1, 1.2, 0, '+20% margin'),
-  new DealerUpgrade('Ferrari 458 Italia', 'A fine Italian supercar. Allows the dealer to sell an extra 30% volume', 575000, 1.3, 1, 0, '+30% volume'),
-  new DealerUpgrade('AW119 Ke Koala', 'A personal helicopter for transporting you and your homies! Allows the dealer to sell an extra 60% volume', 1890000, 1.6, 1, 0, '+60% volume'),
-  new DealerUpgrade('Luxury Speedboat', 'A high speed civilian boat capable of outrunning the coastguard! Allows the dealer to sell an extra 80% volume', 5460000, 1.8, 1, 0, '+80% volume'),
-  new DealerUpgrade('Personal Army', 'A small band of paid mercenaries to intimidate your rivals and collect your debts! Allows the dealer to sell drugs for 30% more money', 21630000, 1, 1.3, 0, '+30% margin')
+  new DealerUpgrade('Bate de beisbol', 'Útil en una pelea callejera y ayuda a ahuyentar a la competencia. Permite al camello vender drogas por un 10% más de dinero.', 150, 1, 1.1, 0, '+10% beneficios'),
+  new DealerUpgrade('Bicicleta', 'El mas barato y básico sistema de transporte. Permite al camello vender un 10% mas de droga', 600, 1.1, 1, 0, '+10% cantidad'),
+  new DealerUpgrade('iPhone 6 Plus', 'Un teléfono inteligente de última generación. Permite al camello vender una pequeña cantidad de otras drogas sin moverse', 900, 1, 1, 0.1, '+10% ventas secundarias'),
+  new DealerUpgrade('Jog tunning', 'Una de las maneras más rápidas para moverse por las calles. Permite al camello vender un 20% mas de droga', 25000, 1.2, 1, 0, '+20% cantidad'),
+  new DealerUpgrade('Glock 17 9mm', 'Un arma de fuego pequeña pero mortal, nadie te molestará si tienes esto. Permite al camello vender drogas un 20% más caro.', 5000, 1, 1.2, 0, '+20% beneficios'),
+  new DealerUpgrade('Asistente personal', 'Un asistente personal para coger tus llamadas. Permite al camello vender mas droga sin moverse.', 85000, 1, 1, 0.2, '+20% ventas secundarias'),
+  new DealerUpgrade('Ganster armado', 'Una panda de sicarios para eliminar a la competencia. Permite al camello vender drogas un 20% mas caras', 150000, 1, 1.2, 0, '+20% beneficios'),
+  new DealerUpgrade('Ferrari 458 Italia', 'Un jodido ferrari. Permite al camello vender un 30% mas de droga', 575000, 1.3, 1, 0, '+30% volume'),
+  new DealerUpgrade('AW119 Koala', 'Un helicóptero personal para transportarte a ti y a tus amigos.!Permite al camello vender un 60% mas de droga', 1890000, 1.6, 1, 0, '+60% volume'),
+  new DealerUpgrade('Lancha de lujo', 'Un barco de alta velocidad capaz de dejar atras a los guardacostas.! Permite al camello vender un 80% mas de droga', 5460000, 1.8, 1, 0, '+80% volume'),
+  new DealerUpgrade('Ejercito personal', 'Una pequeña banda de mercenarios pagados para intimidar a tus rivales y cobrar tus deudas.! Permite al camello vender drogas un 30% mas caro', 21630000, 1, 1.3, 0, '+30% margin')
 ];
 
 var silkRoadUpgrade = {type:'SilkRoad',name:'Develop Silk Road',tooltip:'Develop the Silk Road dark web site to allow you to bulk sell drugs in units of 1kg',price:141592,glyph:'glyphicon-cloud'};
@@ -89,52 +89,52 @@ function formatNumber(input) {
 }
 
 var productionUpgradesMaster = [
-  new ProductionUpgrade('Fertilizer', 'Nutrient rich fertilizer, increases the amount of weed produced by your cannabis plants by 30%!', 500, 'Planta de cannabis', 1.3, 'Marihuana'),
-  new ProductionUpgrade('Hydroponics', 'High tech agriculture system, increases the amount of weed produced by your cannabis plants by 50%!', 6500, 'Planta de cannabis', 1.5, 'Marihuana'),
+  new ProductionUpgrade('Fertilizantes', 'Abono rico en nutrientes, Aumenta la cantidad de yerba que produce tus plantas de cannabis en un 30%!', 500, 'Planta de cannabis', 1.3, 'Marihuana'),
+  new ProductionUpgrade('Hidroponica', 'Sistema de agricultura de alta tecnología. Aumenta la cantidad de yerba que produce tus plantas de cannabis en un 50%!', 6500, 'Planta de cannabis', 1.5, 'Marihuana'),
 
-  new ProductionUpgrade('Auto Hygrometer', 'An automatically controlled humidity system, increases the amount of shrooms produced by your mushroom farms by 50%!', 5000, 'Mushroom Farm', 1.5, 'Magic Mushrooms'),
-  new ProductionUpgrade('Irrigation system', 'An computer controlled irrigation system, increases the amount of shrooms produced by your mushroom farms by 50%!', 25000, 'Mushroom Farm', 1.5, 'Magic Mushrooms'),
+  new ProductionUpgrade('Higrómetro automático', 'Un sistema para controlar la humedad automáticamente, aumenta la cantidad de setas producidas en tus granjas de setas en un 50!', 5000, 'Granja de setas', 1.5, 'Setas magicas'),
+  new ProductionUpgrade('Sistema de riego', 'Un sistema de riego controlado por un ordenador, aumenta la cantidad de setas producidas en tus granjas de setas en un 50%!', 25000, 'Granja de setas', 1.5, 'Setas magicas'),
 
-  new ProductionUpgrade('Recreational Vehicle', 'Increases the amount of meth made by your cooks by 50%!', 40000, 'Meth Cook', 1.5, 'Meth'),
-  new ProductionUpgrade('Underground Lab', 'Increases the amount of meth made by your cooks by 50%!', 130000, 'Meth Cook', 1.5, 'Meth'),
+  new ProductionUpgrade('Vehículo recreacional', 'Aumenta la producción de metanfetaminas en un 50%!', 40000, 'Cocinero de metanfetamina', 1.5, 'Metanfetamina'),
+  new ProductionUpgrade('Laboratorio subterraneo', 'Aumenta la producción de metanfetaminas en un 50%!', 130000, 'Cocinero de metanfetamina', 1.5, 'Metanfetamina'),
 
-  new ProductionUpgrade('Corrupt Chemist', 'Increases the amount of speed produced by your chefs by 60%!', 75000, 'Base Chef', 1.6, 'Speed'),
-  new ProductionUpgrade('Criminal Pharmacy', 'Increases the amount of speed produced by your chefs by 50%!', 190000, 'Base Chef', 1.5, 'Speed'),
+  new ProductionUpgrade('Quimico corrupto', 'Aumenta la producción de speed producida por tus cocineros un 60%!', 75000, 'Cocinero de base', 1.6, 'Speed'),
+  new ProductionUpgrade('Farmacia ilegal', 'Aumenta la producción de speed producida por tus cocineros un 50%!', 190000, 'Cocinero de base', 1.5, 'Speed'),
 
-  new ProductionUpgrade('College education', 'Increases the amount of acid made by your lab technicians by 50%!', 80000, 'Lab Technician', 1.5, 'Acid'),
-  new ProductionUpgrade('Digital Distillation', 'Increases the amount of acid made by your lab technicians by 50%!', 120000, 'Lab Technician', 1.5, 'Acid'),
+  new ProductionUpgrade('Educación universitaria', 'Aumenta la producción de acido del laboratorio un 50%!', 80000, 'Tecnico de laboratorio', 1.5, 'Acido'),
+  new ProductionUpgrade('Destilacion digital', 'Aumenta la producción de acido del laboratorio un 50%!', 120000, 'Tecnico de laboratorio', 1.5, 'Acido'),
 
-  new ProductionUpgrade('Gang protection', 'Increases the amount of crack made by your crack dens by 50%!', 145000, 'Crack Den', 1.5, 'Crack'),
-  new ProductionUpgrade('Police Payoff', 'Get the feds off your back to increase the amount of crack made by your crack dens by 45%!', 280000, 'Crack Den', 1.45, 'Crack'),
+  new ProductionUpgrade('Protección de un ganster', 'Aumenta la producción de crack un 50%', 145000, 'Casa de crack', 1.5, 'Crack'),
+  new ProductionUpgrade('Pagar a la policia', '¡Quita a los federales de tu espalda para aumentar la producción de crack en tus casas de crack en un 45%!', 280000, 'Casa de crack', 1.45, 'Crack'),
 
-  new ProductionUpgrade('Haber process research', 'Increases the amount of PCP made by your chemical labs by 50%!', 190000, 'Chemical Lab', 1.5, 'PCP'),
-  new ProductionUpgrade('Mass Spectrometer', 'Increases the amount of PCP made by your chemical labs by 70%!', 550000, 'Chemical Lab', 1.7, 'PCP'),
+  new ProductionUpgrade('Investigar proceso de fabricación', '¡Aumenta la cantidad de PCP hecha por tus laboratorios químicos en un 50%!', 190000, 'Laboratorio quimico', 1.5, 'PCP'),
+  new ProductionUpgrade('Espectrómetro de masas', '¡Aumenta la cantidad de PCP hecha por tus laboratorios químicos en un 70%!', 550000, 'Laboratorio quimico', 1.7, 'PCP'),
 
-  new ProductionUpgrade('Polytunnel complex', 'Increases the amount of heroin made by your opium farms by 50%!', 210000, 'Opium Farm', 1.5, 'Heroin'),
-  new ProductionUpgrade('Cropdusting', 'Increases the amount of heroin made by your opium farms by 50%!', 750000, 'Opium Farm', 1.5, 'Heroin'),
+  new ProductionUpgrade('Complejo de politunnel', '¡Aumenta la cantidad de heroína producida por tus granjas de opio en un 50%!', 210000, 'Granja de opio', 1.5, 'Heroina'),
+  new ProductionUpgrade('Fumigación', '¡Aumenta la cantidad de heroína producida por tus granjas de opio en un 50%!', 750000, 'Granja de opio', 1.5, 'Heroina'),
 
-  new ProductionUpgrade('PhD Students', 'A small army of PhD students to assist the professors in their important work. Increases the amount of MDMA made by your chemistry professors by 60%!', 250000, 'Chemistry Professor', 1.6, 'MDMA'),
-  new ProductionUpgrade('Research Facility', 'Increases the amount of MDMA made by your chemistry professors by 40%!', 1000000, 'Chemistry Professor', 1.4, 'MDMA'),
+  new ProductionUpgrade('Estudiantes de un doctorado', 'Un pequeño ejército de estudiantes de doctorado para ayudar a los profesores en su importante trabajo. ¡Aumenta la cantidad de MDMA hecha por tus profesores de química en un 60%!', 250000, 'Profesor de quimica', 1.6, 'MDMA'),
+  new ProductionUpgrade('Centro de investigación', '¡Aumenta la cantidad de MDMA hecha por tus profesores de química en un 40%!', 1000000, 'Profesor de quimica', 1.4, 'MDMA'),
 
-  new ProductionUpgrade('Plastic surgery disguise', 'Increases the amount of cocaine smuggled by your drug mules by 30%!', 350000, 'Drug Mule', 1.3, 'Cocaine'),
-  new ProductionUpgrade('Cartel deal', 'Broker a deal with a major cartel south of the border. Increases the amount of cocaine smuggled by your drug mules by 80%!', 1500000, 'Drug Mule', 1.8, 'Cocaine'),
-  new ProductionUpgrade('DEA Mole', 'Install a mole within the DEA to help make your operations go more smoothly. Increases the amount of cocaine smuggled by your drug mules by 50%!', 2500000, 'Drug Mule', 1.5, 'Cocaine'),
+  new ProductionUpgrade('Cirugia plástica disfrazada', '¡Aumenta la cantidad de cocaína traida por tus mulas de drogas en un 30%!', 350000, 'Mula', 1.3, 'Cocaina'),
+  new ProductionUpgrade('Alianza con un Cartel', 'Negociar un acuerdo con un importante cartel al sur de la frontera. ¡Aumenta la cantidad de cocaína traida por tus mulas de drogas en un 80%!', 1500000, 'Mula', 1.8, 'Cocaina'),
+  new ProductionUpgrade('Topo en la DEA', 'Instale un topo dentro de la DEA para que sus operaciones sean más fáciles. ¡Aumenta la cantidad de cocaína traida por tus mulas de drogas en un 50%!', 2500000, 'Mula', 1.5, 'Cocaina'),
 
-  new ProductionUpgrade('Cult Leader Cain', 'Religious leader of the Nuke cult. Increases the amount of Nuke made by your Robot Criminals by 60%!', 14500000, 'Robot Criminal', 1.6, 'Nuke'),
-  new ProductionUpgrade('Deprogrammed Robocop', 'The one thing slowing down your Nuke operation, reprogrammed to use against your enemies! Increases the amount of Nuke made by your Robot Criminals by 50%!', 28000000, 'Robot Criminal', 1.5, 'Nuke'),
+  new ProductionUpgrade('Lider Cain', 'Líder religioso de la secta Nuke. ¡Aumenta la cantidad de nuke que hacen tus robots criminales en un 60%!', 14500000, 'Robot Criminal', 1.6, 'Nuke'),
+  new ProductionUpgrade('Robocop Desprogramado', '¡La única cosa que ralentiza tu operación de Nuke, reprogramada para usar contra tus enemigos! ¡Aumenta la cantidad de Nuke que hacen tus Robots Criminales en un 50%!', 28000000, 'Robot Criminal', 1.5, 'Nuke'),
 
-  new ProductionUpgrade('Neural Net Research', 'Increases the amount of Cyber Crank made by your Blackhat Hiveminds by 50%!', 45000000, 'Blackhat Hivemind', 1.5, 'Cyber Crank'),
-  new ProductionUpgrade('Global Botnet', 'Increases the amount of Cyber Crank made by your Blackhat Hiveminds by 45%!', 75000000, 'Blackhat Hivemind', 1.45, 'Cyber Crank'),
+  new ProductionUpgrade('Investigacion de la red neuronal', '¡Aumenta la cantidad de Crank fabricada por tu Blackhat Hiveminds en un 50%!', 45000000, 'Blackhat Hivemind', 1.5, 'Crank'),
+  new ProductionUpgrade('Botnet Global', '¡Aumenta la cantidad de Cyber Crank fabricada por tu Blackhat Hiveminds en un 45%!', 75000000, 'Blackhat Hivemind', 1.45, 'Crank'),
 
-  new ProductionUpgrade('Human Test Subjects', 'Test your drug batches on human subjects. They might not survive the process but it will increase the amount of Ephemerol produced by 60%!', 120000000, 'Secret Facility', 1.6, 'Ephemerol'),
-  new ProductionUpgrade('ConSec Scanner', 'Increases the amount of Ephemerol made by your Secret Facilities by 75%!', 275000000, 'Secret Facility', 1.75, 'Ephemerol'),
+  new ProductionUpgrade('Pruebas con humanos', 'Pon a prueba tus lotes de drogas en sujetos humanos. Es posible que no sobrevivan al proceso, pero aumentará la cantidad de Ephemerol producida en un 60%.!', 120000000, 'Instalacion secreta', 1.6, 'Ephemerol'),
+  new ProductionUpgrade('Scanner ConSec', '¡Aumenta la cantidad de Ephemerol fabricada por tus instalaciones secretas en un 75%!', 275000000, 'Instalacion secreta', 1.75, 'Ephemerol'),
 
-  new ProductionUpgrade('Peachtree Block', 'Give your Chem-techs somewhere safe to work. Increases the amount of Slo-mo produced by 100%!', 575000000, 'Chem-tech', 2, 'Slo-mo'),
+  new ProductionUpgrade('Peachtree Block', 'Dele a sus técnicos químicos un lugar seguro para trabajar. Aumenta la cantidad de Slo-mo producida en un 100%!', 575000000, 'Lab. quimico-tecnologico', 2, 'Slo-mo'),
 
-  new ProductionUpgrade('The Ludovico Technique', 'Take control over your Droogs and keep them focused on the important work of producing Drencrom. Increases the amount of Drencrom produced by 100%!', 575000000, 'Droog Squad', 2, 'Drencrom'),
+  new ProductionUpgrade('La Técnica Ludovico', 'Tome el control de sus squads de hooligans y manténgalos enfocados en el importante trabajo de producir Drencrom. Aumenta la cantidad de Drencrom producida en un 100%.', 575000000, 'Squad de hooligans', 2, 'Drencrom'),
 
-  new ProductionUpgrade('Guild Navigator', 'Increases the amount of Melange produced by 30%!', 2575000000, 'Sandworm', 1.3, 'Melange'),
-  new ProductionUpgrade("Muad'Dib", 'Leader of the Fremen. Increases the amount of Melange produced by 50%!', 7900000000, 'Sandworm', 1.5, 'Melange')
+  new ProductionUpgrade('Navegador de la hermandad', '¡Aumenta la cantidad de Melange producida en un 30%!', 2575000000, 'Sandworm', 1.3, 'Melange'),
+  new ProductionUpgrade("Muad'Dib", 'Líder de los fremen. ¡Aumenta la cantidad de Melange producida en un 50%!', 7900000000, 'Sandworm', 1.5, 'Melange')
 ];
 
 function Drug(name, pricePerGram, costToUnlock) {
@@ -145,7 +145,7 @@ function Drug(name, pricePerGram, costToUnlock) {
   this.selected = true;
   this.costToUnlock = costToUnlock;
   this.totalCash = 0;
-  this.drugUnlock = new DrugUnlock('Research ' + this.name, 'Spend money to research production of a new drug, ' + this.name + '. Your customers will love it!', this.costToUnlock, this.name);
+  this.drugUnlock = new DrugUnlock('Investigar ' + this.name, 'Gasta dinero para investigar la producción de una nueva droga, ' + this.name + '. ¡A tus clientes le encantará!', this.costToUnlock, this.name);
 }
 
 function muscle(name, price, respect, priceMulti) {
@@ -159,14 +159,14 @@ function muscle(name, price, respect, priceMulti) {
 var createMuscleMaster = function() {
   return [
     new muscle('Yonki', 80, 1, 1.2),
-    new muscle('Young Thug', 1000, 5, 1.25),
-    new muscle('Hired Goon', 12000, 75, 1.27),
-    new muscle('Crooked Cop', 130000, 500, 1.28),
-    new muscle('Bought Judge', 1500000, 2000, 1.3),
-    new muscle('Corrupt Senator', 4500000, 7500, 1.31),
-    new muscle('Puppet World Leader', 33700000, 45000, 1.32),
-    new muscle('Hunter Killer Submarine', 7500100800, 150000, 1.33),
-    new muscle('Nimitz-class aircraft carrier', 45500700000, 350000, 1.34),
+    new muscle('Niñato', 1000, 5, 1.25),
+    new muscle('Matón', 12000, 75, 1.27),
+    new muscle('Policia corrupto', 130000, 500, 1.28),
+    new muscle('Juez comprado', 1500000, 2000, 1.3),
+    new muscle('Senador corrupto', 4500000, 7500, 1.31),
+    new muscle('Lider mundial extorsionado', 33700000, 45000, 1.32),
+    new muscle('Submarino fantasma', 7500100800, 150000, 1.33),
+    new muscle('Portaaviones clase Nimitz', 45500700000, 350000, 1.34),
     new muscle('Orbital Ion Cannon', 9345500700000, 7490000, 1.35)
   ];
 };
@@ -176,17 +176,17 @@ var muscleMaster = createMuscleMaster();
 var createDrugsMaster = function() {
   return [
     new Drug('Marihuana', 4.2, 0),
-    new Drug('Magic Mushrooms', 6, 2000),
-    new Drug('Meth', 10, 7000),
+    new Drug('Setas magicas', 6, 2000),
+    new Drug('Metanfetamina', 10, 7000),
     new Drug('Speed', 15, 20000),
-    new Drug('Acid', 20, 40000),
+    new Drug('Acido', 20, 40000),
     new Drug('Crack', 30, 75000),
     new Drug('PCP', 40, 90000),
-    new Drug('Heroin', 50, 120000),
+    new Drug('Heroina', 50, 120000),
     new Drug('MDMA', 60, 180000),
-    new Drug('Cocaine', 70, 250000),
+    new Drug('Cocaina', 70, 250000),
     new Drug('Nuke', 240, 5500000),
-    new Drug('Cyber Crank', 666.67, 15000000),
+    new Drug('Crank', 666.67, 15000000),
     new Drug('Ephemerol', 3400, 95000000),
     new Drug('Slo-mo', 11250, 465000000),
     new Drug('Drencrom', 63250, 1200000000),
@@ -207,20 +207,20 @@ var drugsMaster = createDrugsMaster();
   var createProductionMaster = function() {
     return [
       new Producer('Planta de cannabis', 15, 'Marihuana', 1.12, 0.2),
-      new Producer('Mushroom Farm', 150, 'Magic Mushrooms', 1.15, 0.3),
-      new Producer('Meth Cook', 1000, 'Meth', 1.2, 0.5),
-      new Producer('Base Chef', 2500, 'Speed', 1.21, 0.4),
-      new Producer('Lab Technician', 5000, 'Acid', 1.22, 0.5),
-      new Producer('Crack Den', 10000, 'Crack', 1.23, 0.5),
-      new Producer('Chemical Lab', 20000, 'PCP', 1.24, 0.4),
-      new Producer('Opium Farm', 30000, 'Heroin', 1.25, 0.5),
-      new Producer('Chemistry Professor', 40000, 'MDMA', 1.26, 0.4),
-      new Producer('Drug Mule', 50000, 'Cocaine', 1.27, 0.25),
+      new Producer('Granja de setas', 150, 'Setas magicas', 1.15, 0.3),
+      new Producer('Cocinero de metanfetamina', 1000, 'Metanfetamina', 1.2, 0.5),
+      new Producer('Cocinero de base', 2500, 'Speed', 1.21, 0.4),
+      new Producer('Tecnico de laboratorio', 5000, 'Acido', 1.22, 0.5),
+      new Producer('Casa de crack', 10000, 'Crack', 1.23, 0.5),
+      new Producer('Laboratorio quimico', 20000, 'PCP', 1.24, 0.4),
+      new Producer('Granja de opio', 30000, 'Heroina', 1.25, 0.5),
+      new Producer('Profesor de quimica', 40000, 'MDMA', 1.26, 0.4),
+      new Producer('Mula', 50000, 'Cocaina', 1.27, 0.25),
       new Producer('Robot Criminal', 700000, 'Nuke', 1.28, 0.16),
-      new Producer('Blackhat Hivemind', 2500000, 'Cyber Crank', 1.29, 0.08),
-      new Producer('Secret Facility', 5000000, 'Ephemerol', 1.30, 0.04),
-      new Producer('Chem-tech', 12000000, 'Slo-mo', 1.31, 0.02),
-      new Producer('Droog Squad', 35000000, 'Drencrom', 1.31, 0.015),
+      new Producer('Blackhat Hivemind', 2500000, 'Crank', 1.29, 0.08),
+      new Producer('Instalacion secreta', 5000000, 'Ephemerol', 1.30, 0.04),
+      new Producer('Lab. quimico-tecnologico', 12000000, 'Slo-mo', 1.31, 0.02),
+      new Producer('Squad de hooligans', 35000000, 'Drencrom', 1.31, 0.015),
       new Producer('Sandworm', 75000000, 'Melange', 1.32, 0.01)];
   };
 
@@ -1010,7 +1010,7 @@ var drugsMaster = createDrugsMaster();
               var bailValue = dealerToArrest.cashPerSecond * 95;
               dealerToArrest.arrested = true;
               dealerToArrest.bail = bailValue;
-              dealerToArrest.arrestMessage = dealerToArrest.name + ' has been arrested by the cops! Bail has been set at ' + formatMoney(bailValue) + '.';
+              dealerToArrest.arrestMessage = dealerToArrest.name + ' ha sido arrestado por la policia! La fianza es de ' + formatMoney(bailValue) + '.';
               messagesHaveChanged = true;
             }
           }
@@ -1022,7 +1022,7 @@ var drugsMaster = createDrugsMaster();
               drugname: buffDrug.name,
               modifier: percentage,
               expires: new Date().getTime() + (time * 1000),
-              msg: "One of your rivals has been busted by the cops. The lack of competition is causing " + buffDrug.name + " to sell for " + (percentage * 100).toFixed() + "% of the normal street price for the next {0} seconds!"
+              msg: "Uno de tus rivales ha sido arrestado por la policía. La falta de la competencia hace que la  " + buffDrug.name + " se venda al " + (percentage * 100).toFixed() + "% del precio normal en la calla durante {0} segundos!"
             };
           }
           messagesHaveChanged = true;
