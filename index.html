@@ -111,7 +111,6 @@
     </script>
 </head>
 <body ng-controller="DopeController" ng-class="{'work-mode' : options.workMode, 'top-hidden' : options.hideTop, 'night-mode' : options.nightMode, 'kongregate' : options.kongregateLargeWindow}" ng-animate-children>
-
     <div class="cash-top" style="display:none;">
         <div class="container">
             <div class="strong row">
@@ -138,9 +137,8 @@
         <div class="row">
             <div>
               <div class="col-xs-12 col-sm-9 col-md-10">
-                  <h1 class="street" ng-class="{'hidden' : options.workMode || options.hideTop}"><span class="production-header">Dope</span> <span class="distribution-header">Slinger</span> <span class="muscle-header">Tycoon</span></h1>
+                  <h1 class="street" ng-class="{'hidden' : options.workMode || options.hideTop}"><span class="production-header">The</span> <span class="distribution-header">Dealer</span> <span class="muscle-header">Tycoon</span></h1>
               </div>
-
               <div class="col-xs-12 col-sm-3 col-md-2" ng-if="!options.hideTop">
                   <button onclick="$('#optionsModal').modal('show');" class="btn btn-default options-button"><span class="iconred glyphicon glyphicon-cog"></span> Opciones</button>
                   <button ng-click="hideTop()" class="btn btn-default"><span class="glyphicon glyphicon-eye-close icongreen"></span> Ocultar titulo </button>
@@ -556,6 +554,14 @@
                         <div class="col-xs-12" ng-show="kingpins.length > 0" style="margin-top:25px;">
                             <p class="strong">The names of your Kingpins</p>
                             <span ng-repeat="kingpin in kingpins track by $index" class="kingpin-name"><span class="glyphicon glyphicon-tower iconyellow" style="margin-right:5px;"></span>{{kingpin}}</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <audio controls autoplay loop>
+                                <source src="../musica/elpadrino.mp3" type="audio/mp3">
+                            </audio>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                           El audio tiene un bug que se intenta solucionar
                         </div>
                     </div>
                 </div>
